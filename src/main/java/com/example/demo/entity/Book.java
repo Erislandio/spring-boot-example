@@ -3,7 +3,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import javax.persistence.*;
 
 @Entity
@@ -32,8 +31,8 @@ public class Book {
     @Column(nullable = false, name = "publisher_name", unique = true)
     private String publisherName;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE })
     @JoinColumn(name = "author_id")
-    private  Author author;
+    private Author author;
 
 }
